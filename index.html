@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hospital Billing System</title>
+    <!-- Add the Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #003366;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .logo {
+            width: 50px; /* Set the width and height to your desired size */
+            height: 50px;
+            border-radius: 50%; /* Makes the image circular */
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #billAmount {
+            display: none;
+            margin-top: 20px;
+            background: #eee;
+            padding: 10px;
+        }
+
+        #billingForm {
+            display: none;
+        }
+
+        /* Additional styling for your About Us section */
+        .aboutus {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center; /* Center the text */
+            background-color: #003366;
+            color: #fff;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+<!-- Fixed-top navigation bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#"><img src="./images/logo.jpeg" class="logo"></a>
+    <div class="navbar-brand ml-auto animated fadeInLeft">Chuchu Hospital</div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#landing">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#aboutus">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contactpage">Contact Page</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+    <!-- Home Page start -->
+    <div id="landing" class="jumbotron jumbotron-fluid portfolio-hero full-height d-flex align-items-center my-0">
+        <div class="container">
+            <header>
+                <h1>Hospital Billing System</h1>
+            </header>
+            <div class="container" id="loginForm">
+                <h2>Patient Information</h2>
+                <form id="patientInfo">
+                    <label for="patientName">Patient Name:</label>
+                    <input type="text" id="patientName" name="patientName" required>
+
+                    <label for="patientID">Patient ID:</label>
+                    <input type="number" id="patientID" name="patientID" required>
+
+                    <button type="button" onclick="submitPatientInfo()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Home Page end -->
+
+    <script>
+    // JavaScript code for handling form submission
+    function submitPatientInfo() {
+        // Get the values from the form inputs
+        var patientName = document.getElementById("patientName").value;
+        var patientID = document.getElementById("patientID").value;
+
+        // You can perform any necessary validation here
+
+        // If the form is valid, switch to the new page
+        if (patientName && patientID) {
+            // Redirect to the new summary page (summary.html)
+            window.location.href = "summary.html?patientName=" + patientName + "&patientID=" + patientID;
+        }
+    }
+</script>
+
+    <!-- About Us section -->
+    <div id="aboutus" class="aboutus">
+       <section class="about-us">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>
+                Welcome to Chuchu Hospital, the premier healthcare institution in the Philippines, dedicated to exceptional cardiovascular care and wellness. As a leader in the field of cardiology, we take pride in our commitment to providing world-class healthcare services to our patients and the broader community.
+
+                <h2>Our Legacy</h2>
+                <p>
+                Founded with a passion for healing and a mission to make a difference, Chuchu Hospital has a rich legacy of delivering top-notch cardiovascular care since its inception. With a history that spans over [Number of Years] years, we have continuously strived for excellence, shaping the future of cardiac health in the Philippines.
+            </p>
+                <h2>Our Expertise</h2>
+                <p>
+                At Chuchu Hospital we specialize in cardio care, and our team of highly skilled and experienced cardiologists and healthcare professionals is at the forefront of cutting-edge cardiovascular treatments and research. We consistently push the boundaries of medical innovation to provide our patients with the most advanced and effective solutions for their heart health.
+            </p>
+        </div>
+    </section>
+
+    <section class="mission-vision">
+        <div class="container">
+            <h2>Mission</h2>
+            <p>
+                Our primary mission is to enhance the quality of life for our patients by preventing, diagnosing, and treating cardiovascular diseases with the utmost care, compassion, and expertise. We are dedicated to improving the overall health and well-being of our community through the promotion of heart-healthy practices and patient-centric care.   </p>
+            <h2>Vision</h2>
+            <p>
+               We aspire to be the undisputed leader in cardiovascular healthcare in the Philippines, setting the gold standard for excellence and innovation in cardiology. Our vision is to empower our patients with the knowledge, resources, and support they need to lead healthier lives.
+          </p>
+        </div>
+    </section>
+
+    <section class="values">
+        <div class="container">
+            <h2>Our Commitment</h2>
+            <ul>
+                <li>Patient-Centered Care: Our patients are at the heart of everything we do. We provide individualized treatment plans and support to ensure their unique needs and concerns are addressed.</li>
+                <li>Innovative Solutions: [Hospital Name] is committed to staying at the forefront of medical technology and research. We consistently invest in the latest advancements in cardiovascular care to provide the best possible treatments for our patients.
+                </li>
+                <li>Educational Outreach: We believe that knowledge is the key to good health. Our hospital is dedicated to educating the community on cardiovascular wellness and prevention, empowering individuals to take control of their heart health.
+                </li>
+                <li>Collaborative Approach: We work closely with other healthcare institutions, research organizations, and experts in the field to ensure our patients receive the most comprehensive care available.
+                </li>
+               </ul>
+                 <p>At Chuchu Hospital we take great pride in being your partner in cardiovascular health. Your heart is our priority, and we are here to provide you with exceptional care and support on your journey to a healthier heart and a brighter future.</p>
+         
+        </div>
+    </section>
+     </div>
+    <!-- About Us end -->
+
+   <!-- Contact Page start -->
+<section id="contactpage" class="row py-5">
+    <div class="contact-wrapper container">
+        <form id="contact-form" class="form-horizontal" role="form">
+            <div class="form-group">
+                <div class="col-sm-12 p-0">
+                    <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12 p-0">
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12 p-0">
+                    <textarea class="form-control" rows="5" placeholder="Message" name="message" required></textarea>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">
+                <i class="fa fa-paper-plane"></i> Send
+            </button>
+        </form>
+
+        <div class="direct-contact-container text-center"> <!-- Added "text-center" class for centering -->
+            <div class="connect-text">Connect with us</div>
+            <div class="contact-text gmail">
+                <a href="mailto:your.email@example.com" title="Send us an email">ChuchuHospital.com</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <footer>
+        <p>&copy; 2023 Chuchu Hospital. All rights reserved.</p>
+    </footer>
+    <!-- Contact Page end -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

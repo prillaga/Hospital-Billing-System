@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Summary of Hospital Charges</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #003366;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        /* Add fade-in animation to the container */
+        .container {
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(0, 20px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(0, 0);
+            }
+        }
+
+        p {
+            margin: 0;
+        }
+
+        /* Add hover effect to table rows */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #003366;
+            color: #fff;
+        }
+
+        table tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #003366;
+            color: #fff;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fixed-top navigation bar (if needed) -->
+    <!-- Your existing navigation bar code here -->
+
+    <!-- Summary Page start -->
+    <div class="container">
+        <header>
+            <h1>Summary of Hospital Charges to Date</h1>
+        </header>
+        <div id="chargesSummary">
+            <h2>Hospital Charges</h2>
+            <table>
+                <tr>
+                    <th>Description</th>
+                    <th>Amount (₱)</th>
+                </tr>
+                <tr>
+                    <td>Room and board</td>
+                    <td>3500</td>
+                </tr>
+                <tr>
+                    <td>Lab Hematology</td>
+                    <td>656</td>
+                </tr>
+                <tr>
+                    <td>ECG 12 leads</td>
+                    <td>693</td>
+                </tr>
+                <tr>
+                    <td>2D Echo</td>
+                    <td>4200</td>
+                </tr>
+            </table>
+            <hr>
+            <h3>Total Hospital Charges</h3>
+            <p id="totalCharges">0</p>
+            <hr>
+            <h3>Mode of Payment</h3>
+            <select id="paymentMethod">
+                <option value="cash">Cash</option>
+                <option value="credit_card">Credit Card</option>
+                <option value="check">Check</option>
+            </select>
+            <!-- Display patient's name and ID once -->
+            <p id="patientName"></p>
+            <p id="patientID"></p>
+        </div>
+    </div>
+    <!-- Summary Page end -->
+
+    <footer>
+        <p>&copy; 2023 Hospital Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Calculate and display total hospital charges
+        window.addEventListener("load", function () {
+            const amounts = [3500, 656, 693, 4200];
+            const total = amounts.reduce((acc, amount) => acc + amount, 0);
+            document.getElementById("totalCharges").textContent = "₱" + total;
+        });
+
+        // Get the parameters from the URL
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const patientName = urlParams.get("patientName");
+        const patientID = urlParams.get("patientID");
+
+        // Display the patient's name and ID in the summary
+        document.getElementById("patientName").textContent = "Patient Name: " + patientName;
+        document.getElementById("patientID").textContent = "Patient ID: " + patientID;
+    </script>
+</body>
+
+</html>
